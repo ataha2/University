@@ -65,6 +65,6 @@ class SemestersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def semester_params
-      params.require(:semester).permit(:year)
+      params.require(:semester).permit(:semster, :year)
     end
 end

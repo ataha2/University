@@ -65,6 +65,6 @@ class PrefixesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def prefix_params
-      params.require(:prefix).permit(:Prefix)
+      params.require(:prefix).permit(:prefix)
     end
 end

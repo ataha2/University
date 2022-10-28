@@ -65,6 +65,6 @@ class SectionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def section_params
-      params.require(:section).permit(:CRN)
+      params.require(:section).permit(:section, :semester_id, :course, :references, :crn)
     end
 end

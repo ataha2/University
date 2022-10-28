@@ -12,8 +12,28 @@
   <% end %>
 
   <div>
-    <%= form.label :CRN, style: "display: block" %>
-    <%= form.number_field :CRN %>
+    <%= form.label :section, style: "display: block" %>
+    <%= form.text_field :section %>
+  </div>
+
+  <div>
+    <%= form.label :semester_id, style: "display: block" %>
+    <%= form.text_field :semester_id %>
+  </div>
+
+  <div>
+    <%= form.label :course, style: "display: block" %>
+    <%= form.text_field :course %>
+  </div>
+
+  <div>
+    <%= form.label :references, style: "display: block" %>
+    <%= form.text_field :references %>
+  </div>
+
+  <div>
+    <%= form.label :crn, style: "display: block" %>
+    <%= form.text_field :crn %>
   </div>
 
   <div>

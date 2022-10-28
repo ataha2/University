@@ -17,7 +17,7 @@ class PrefixesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create prefix" do
     assert_difference("Prefix.count") do
-      post prefixes_url, params: { prefix: { Prefix: @prefix.Prefix } }
+      post prefixes_url, params: { prefix: { prefix: @prefix.prefix } }
     end
 
     assert_redirected_to prefix_url(Prefix.last)
@@ -34,7 +34,7 @@ class PrefixesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update prefix" do
-    patch prefix_url(@prefix), params: { prefix: { Prefix: @prefix.Prefix } }
+    patch prefix_url(@prefix), params: { prefix: { prefix: @prefix.prefix } }
     assert_redirected_to prefix_url(@prefix)
   end
 

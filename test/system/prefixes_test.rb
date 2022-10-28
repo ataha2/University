@@ -14,7 +14,7 @@ class PrefixesTest < ApplicationSystemTestCase
     visit prefixes_url
     click_on "New prefix"
 
-    fill_in "Prefix", with: @prefix.Prefix
+    fill_in "Prefix", with: @prefix.prefix
     click_on "Create Prefix"
 
     assert_text "Prefix was successfully created"
@@ -25,7 +25,7 @@ class PrefixesTest < ApplicationSystemTestCase
     visit prefix_url(@prefix)
     click_on "Edit this prefix", match: :first
 
-    fill_in "Prefix", with: @prefix.Prefix
+    fill_in "Prefix", with: @prefix.prefix
     click_on "Update Prefix"
 
     assert_text "Prefix was successfully updated"

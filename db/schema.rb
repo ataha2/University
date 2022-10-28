@@ -10,27 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_20_062708) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_15_205046) do
   create_table "courses", force: :cascade do |t|
-    t.string "name"
+    t.integer "prefix_id", null: false
     t.integer "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["prefix_id"], name: "index_courses_on_prefix_id"
   end
 
   create_table "prefixes", force: :cascade do |t|
-    t.string "Prefix"
+    t.string "prefix"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "sections", force: :cascade do |t|
-    t.integer "CRN"
+    t.string "section"
+    t.integer "semester_id", null: false
+    t.string "course"
+    t.string "references"
+    t.string "crn"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["semester_id"], name: "index_sections_on_semester_id"
   end
 
   create_table "semesters", force: :cascade do |t|
+    t.string "semster"
     t.integer "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -46,4 +53,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_20_062708) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "courses", "prefixes"
+  add_foreign_key "sections", "semesters"
 end

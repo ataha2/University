@@ -12,9 +12,10 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.label :prefix_id, style: "display: block" %>
+    <%= form.collection_select :prefix_id, Prefix.all, :id, :prefix %>
   </div>
+
 
   <div>
     <%= form.label :number, style: "display: block" %>
