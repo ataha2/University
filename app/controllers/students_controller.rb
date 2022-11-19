@@ -5,6 +5,14 @@ class StudentsController < ApplicationController
   def index
     @students = Student.all
   end
+  def search
+    if params[:search].blank?
+      redirect_to students_path and return
+    else
+      @parameter = params[:search].downcase
+    @results = Student.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+    end
+  end
 
   # GET /students/1 or /students/1.json
   def show

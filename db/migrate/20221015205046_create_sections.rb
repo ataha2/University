@@ -4,6 +4,7 @@ class CreateSections < ActiveRecord::Migration[7.0]
       t.string :section
       t.references :semester, null: false, foreign_key: true
       t.string :course
+ #     t.references :course, null: false, foreign_key: true
       t.string :references
       t.string :crn
 

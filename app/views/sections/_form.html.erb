@@ -11,6 +11,14 @@
     </div>
   <% end %>
 
+  <div class="control-group">
+    <%= form.label "Course", class: 'control-label' %>
+    <div class="controls">
+      <%= form.select(:course_type, options_for_select([['CS-3710','CS-3710'], ['MTH-1100', 'MTH-1100'], ['PHI-1010', 'PHI-1010'],['ENG-1100', 'ENG-1100']])) %>
+    </div>
+  </div>
+<br>
+
   <div>
     <%= form.label :section, style: "display: block" %>
     <%= form.text_field :section %>
@@ -21,15 +29,8 @@
     <%= form.text_field :semester_id %>
   </div>
 
-  <div>
-    <%= form.label :course, style: "display: block" %>
-    <%= form.text_field :course %>
-  </div>
 
-  <div>
-    <%= form.label :references, style: "display: block" %>
-    <%= form.text_field :references %>
-  </div>
+
 
   <div>
     <%= form.label :crn, style: "display: block" %>
