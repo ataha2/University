@@ -3,7 +3,12 @@ class SectionsController < ApplicationController
 
   # GET /sections or /sections.json
   def index
-    @sections = Section.all
+    if params[:query]
+      @sections = Section.where("CRN like ?", "%#{params[:query]}%")
+    else
+      @sections = Section.all
+    end
+    @students = Student.all
   end
 
   # GET /sections/1 or /sections/1.json
@@ -13,10 +18,12 @@ class SectionsController < ApplicationController
   # GET /sections/new
   def new
     @section = Section.new
+    @students = Student.all
   end
 
   # GET /sections/1/edit
   def edit
+    @students = Student.all
   end
 
   # POST /sections or /sections.json
@@ -65,6 +72,6 @@ class SectionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def section_params
-      params.require(:section).permit(:section, :semester_id, :course, :references, :crn)
+      params.require(:section).permit(:CRN, :course_id, :semester_id, :student_ids => [])
     end
 end

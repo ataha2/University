@@ -14,11 +14,11 @@ class StudentsTest < ApplicationSystemTestCase
     visit students_url
     click_on "New student"
 
-    fill_in "Address", with: @student.Address
-    fill_in "Email", with: @student.Email
-    fill_in "Id number", with: @student.ID_Number
+    fill_in "Email address", with: @student.Email_address
     fill_in "Name", with: @student.Name
-    fill_in "Phone", with: @student.Phone
+    fill_in "Phone number", with: @student.Phone_number
+    fill_in "Physical address", with: @student.Physical_address
+    fill_in "Student number", with: @student.Student_number
     click_on "Create Student"
 
     assert_text "Student was successfully created"
@@ -29,11 +29,11 @@ class StudentsTest < ApplicationSystemTestCase
     visit student_url(@student)
     click_on "Edit this student", match: :first
 
-    fill_in "Address", with: @student.Address
-    fill_in "Email", with: @student.Email
-    fill_in "Id number", with: @student.ID_Number
+    fill_in "Email address", with: @student.Email_address
     fill_in "Name", with: @student.Name
-    fill_in "Phone", with: @student.Phone
+    fill_in "Phone number", with: @student.Phone_number
+    fill_in "Physical address", with: @student.Physical_address
+    fill_in "Student number", with: @student.Student_number
     click_on "Update Student"
 
     assert_text "Student was successfully updated"

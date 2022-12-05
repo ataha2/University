@@ -5,23 +5,29 @@
   </p>
 
   <p>
-    <strong>Id number:</strong>
-    <%= student.ID_Number %>
+    <strong>Student number:</strong>
+    <%= student.Student_number %>
   </p>
 
   <p>
-    <strong>Email:</strong>
-    <%= student.Email %>
+    <strong>Phone number:</strong>
+    <%= student.Phone_number %>
   </p>
 
   <p>
-    <strong>Phone:</strong>
-    <%= student.Phone %>
+    <strong>Email address:</strong>
+    <%= student.Email_address %>
   </p>
 
   <p>
-    <strong>Address:</strong>
-    <%= student.Address %>
+    <strong>Physical address:</strong>
+    <%= student.Physical_address %>
   </p>
 
+  <p>
+    <strong>Sections:</strong>
+    <% student.sections.each do |section| %>
+      <li><%= section.CRN %></li>
+    <% end %>
+  </p>
 </div>

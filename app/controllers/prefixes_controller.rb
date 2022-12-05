@@ -3,8 +3,12 @@ class PrefixesController < ApplicationController
 
   # GET /prefixes or /prefixes.json
   def index
-    @prefixes = Prefix.all
-  end
+    if params[:query]
+      @prefixes = Prefix.where("prefix like ?", "%#{params[:query]}%")
+    else
+      @prefixes = Prefix.all
+    end
+   end
 
   # GET /prefixes/1 or /prefixes/1.json
   def show

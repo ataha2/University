@@ -1,15 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  section: MyString
+  id: 1
+  CRN: 1
+  course: one
   semester: one
-  course: MyString
-  references: MyString
-  crn: MyString
 
 two:
-  section: MyString
+  id: 2
+  CRN: 1
+  course: two
   semester: two
-  course: MyString
-  references: MyString
-  crn: MyString

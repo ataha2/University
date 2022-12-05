@@ -1,15 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   Name: MyString
-  ID_Number: 1
-  Email: MyString
-  Phone: 1
-  Address: MyString
+  Student_number: 1
+  Phone_number: 1
+  Email_address: MyString
+  Physical_address: MyText
 
 two:
+  id: 2
   Name: MyString
-  ID_Number: 1
-  Email: MyString
-  Phone: 1
-  Address: MyString
+  Student_number: 1
+  Phone_number: 1
+  Email_address: MyString
+  Physical_address: MyText

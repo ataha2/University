@@ -1,12 +1,19 @@
 <div id="<%= dom_id semester %>">
   <p>
-    <strong>Semster:</strong>
-    <%= semester.semster %>
+    <strong>Semester:</strong>
+    <%= semester.semester %>
   </p>
 
   <p>
     <strong>Year:</strong>
     <%= semester.year %>
+  </p>
+
+  <p>
+    <strong>Sections:</strong>
+    <% semester.sections.each do |section| %>
+      <li><%= section.CRN %></li>
+    <% end %>
   </p>
 
 </div>

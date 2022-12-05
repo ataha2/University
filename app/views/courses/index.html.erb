@@ -2,6 +2,12 @@
 
 <h1>Courses</h1>
 
+<%= form_tag(courses_url, method: "get") do %>
+    <%= label_tag(:query, "Search for courses by name:") %>
+    <%= text_field_tag(:query) %>
+    <%= submit_tag("Search") %>
+<% end %>
+
 <div id="courses">
   <% @courses.each do |course| %>
     <%= render course %>

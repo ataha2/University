@@ -1,7 +1,7 @@
-<%= form_with(model: student) do |form| %>
+ <%= form_with(model: student) do |form| %>
   <% if student.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
+    <div style="color: red"> 
+      <h2><%= pluralize(student.errors.count, "error") %> prohibited this section from being saved:</h2>
 
       <ul>
         <% student.errors.each do |error| %>
@@ -17,23 +17,28 @@
   </div>
 
   <div>
-    <%= form.label :ID_Number, style: "display: block" %>
-    <%= form.number_field :ID_Number %>
+    <%= form.label :Student_number, style: "display: block" %>
+    <%= form.number_field :Student_number %>
   </div>
 
   <div>
-    <%= form.label :Email, style: "display: block" %>
-    <%= form.text_field :Email %>
+    <%= form.label :Phone_number, style: "display: block" %>
+    <%= form.number_field :Phone_number %>
   </div>
 
   <div>
-    <%= form.label :Phone, style: "display: block" %>
-    <%= form.number_field :Phone %>
+    <%= form.label :Email_address, style: "display: block" %>
+    <%= form.text_field :Email_address %>
   </div>
 
   <div>
-    <%= form.label :Address, style: "display: block" %>
-    <%= form.text_field :Address %>
+    <%= form.label :Physical_address, style: "display: block" %>
+    <%= form.text_area :Physical_address %>
+  </div>
+
+  <div>
+    <%= form.label :section_id %><br>
+    <%= form.collection_check_boxes(:section_ids, Section.all, :id, :CRN) %>
   </div>
 
   <div>

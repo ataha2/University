@@ -3,7 +3,12 @@ class StudentsController < ApplicationController
 
   # GET /students or /students.json
   def index
-    @students = Student.all
+    if params[:query]
+      @students = Student.where("Name like ?", "%#{params[:query]}%")
+    else
+      @students = Student.all
+    end
+    @sections = Section.all	
   end
 
   # GET /students/1 or /students/1.json
@@ -13,10 +18,12 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
+    @sections = Section.all
   end
 
   # GET /students/1/edit
   def edit
+    @sections = Section.all
   end
 
   # POST /students or /students.json
@@ -65,6 +72,6 @@ class StudentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def student_params
-      params.require(:student).permit(:Name, :ID_Number, :Email, :Phone, :Address)
+      params.require(:student).permit(:Name, :Student_number, :Phone_number, :Email_address, :Physical_address, :section_ids => [])
     end
 end

@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>SPA</title>
+<script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<button onclick="fetch('students', ['Name' , 'Student_number','Phone_number', 'Email_address', 'Physical_address'])">Students</button>
+<button onclick="fetch('prefixes', ['prefix'])">Prefixes</button>
+<button onclick="fetch('courses', ['number','name'])">Courses</button>
+<button onclick="fetch('sections', ['CRN'])">Sections</button>
+<button onclick="fetch('semesters', ['semester','year'])">Semesters</button>
+
+
+
+<div id="list">
+</div>
+
+<script>
+let fetch = function(which, fields) {
+    $("#list").empty();
+    $.get("http://localhost:3000/" + which + ".json", true)
+    .done(function(json) {
+        for (item in json) {
+            lis = "<li>";
+            for (field in fields) {
+                lis += json[item][fields[field]] + " ";
+            }
+            lis += "</li>";
+            $("#list").append(lis);
+        }
+    })
+    .fail(function(json){ console.log("fail"); })
+};
+</script>
+
+</body>
+</html>

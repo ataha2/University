@@ -1,27 +1,25 @@
 <div id="<%= dom_id section %>">
   <p>
-    <strong>Section:</strong>
-    <%= section.section %>
-  </p>
-
-  <p>
-    <strong>Semester:</strong>
-    <%= section.semester_id %>
+    <strong>Crn:</strong>
+    <%= section.CRN %>
   </p>
 
   <p>
     <strong>Course:</strong>
-    <%= section.course %>
+    <%= section.course.name %>
   </p>
 
   <p>
-    <strong>References:</strong>
-    <%= section.references %>
+    <strong>Semester:</strong>
+    <%= section.semester.semester %>
   </p>
 
   <p>
-    <strong>Crn:</strong>
-    <%= section.crn %>
+    <strong>Students:</strong>
+    <% section.students.each do |student| %>
+      <li><%= student.Name %></li>
+    <% end %>
   </p>
+
 
 </div>

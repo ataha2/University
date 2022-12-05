@@ -2,6 +2,12 @@
 
 <h1>Prefixes</h1>
 
+<%= form_tag(prefixes_url, method: "get") do %>
+    <%= label_tag(:query, "Search for Prefix:") %>
+    <%= text_field_tag(:query) %>
+    <%= submit_tag("Search") %>
+<% end %>
+
 <div id="prefixes">
   <% @prefixes.each do |prefix| %>
     <%= render prefix %>

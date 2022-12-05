@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_15_205046) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_16_084806) do
   create_table "courses", force: :cascade do |t|
     t.integer "prefix_id", null: false
     t.integer "number"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["prefix_id"], name: "index_courses_on_prefix_id"
@@ -26,18 +27,26 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_15_205046) do
   end
 
   create_table "sections", force: :cascade do |t|
-    t.string "section"
+    t.integer "CRN"
+    t.integer "course_id", null: false
     t.integer "semester_id", null: false
-    t.string "course"
-    t.string "references"
-    t.string "crn"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_sections_on_course_id"
     t.index ["semester_id"], name: "index_sections_on_semester_id"
   end
 
+  create_table "sections_students", force: :cascade do |t|
+    t.integer "student_id", null: false
+    t.integer "section_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["section_id"], name: "index_sections_students_on_section_id"
+    t.index ["student_id"], name: "index_sections_students_on_student_id"
+  end
+
   create_table "semesters", force: :cascade do |t|
-    t.string "semster"
+    t.string "semester"
     t.integer "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -45,14 +54,29 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_15_205046) do
 
   create_table "students", force: :cascade do |t|
     t.string "Name"
-    t.integer "ID_Number"
-    t.string "Email"
-    t.integer "Phone"
-    t.string "Address"
+    t.integer "Student_number"
+    t.integer "Phone_number"
+    t.string "Email_address"
+    t.text "Physical_address", limit: 50
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "students_sections", force: :cascade do |t|
+    t.integer "student_id", null: false
+    t.integer "section_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["section_id"], name: "index_students_sections_on_section_id"
+    t.index ["student_id"], name: "index_students_sections_on_student_id"
+  end
+
+  add_foreign_key "sections_students", "sections"
+  add_foreign_key "sections_students", "students"
+  add_foreign_key "students_sections", "sections"
+  add_foreign_key "students_sections", "students"
   add_foreign_key "courses", "prefixes"
+  add_foreign_key "sections", "courses"
   add_foreign_key "sections", "semesters"
+
 end

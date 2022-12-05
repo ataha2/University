@@ -14,10 +14,8 @@ class SectionsTest < ApplicationSystemTestCase
     visit sections_url
     click_on "New section"
 
-    fill_in "Course", with: @section.course
-    fill_in "Crn", with: @section.crn
-    fill_in "References", with: @section.references
-    fill_in "Section", with: @section.section
+    fill_in "Crn", with: @section.CRN
+    fill_in "Course", with: @section.course_id
     fill_in "Semester", with: @section.semester_id
     click_on "Create Section"
 
@@ -29,10 +27,8 @@ class SectionsTest < ApplicationSystemTestCase
     visit section_url(@section)
     click_on "Edit this section", match: :first
 
-    fill_in "Course", with: @section.course
-    fill_in "Crn", with: @section.crn
-    fill_in "References", with: @section.references
-    fill_in "Section", with: @section.section
+    fill_in "Crn", with: @section.CRN
+    fill_in "Course", with: @section.course_id
     fill_in "Semester", with: @section.semester_id
     click_on "Update Section"
 

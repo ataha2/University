@@ -14,7 +14,7 @@ class SemestersTest < ApplicationSystemTestCase
     visit semesters_url
     click_on "New semester"
 
-    fill_in "Semster", with: @semester.semster
+    fill_in "Semester", with: @semester.semester
     fill_in "Year", with: @semester.year
     click_on "Create Semester"
 
@@ -26,7 +26,7 @@ class SemestersTest < ApplicationSystemTestCase
     visit semester_url(@semester)
     click_on "Edit this semester", match: :first
 
-    fill_in "Semster", with: @semester.semster
+    fill_in "Semester", with: @semester.semester
     fill_in "Year", with: @semester.year
     click_on "Update Semester"
 

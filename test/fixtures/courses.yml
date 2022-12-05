@@ -3,7 +3,9 @@
 one:
   prefix: one
   number: 1
+  name: MyString
 
 two:
   prefix: two
   number: 1
+  name: MyString

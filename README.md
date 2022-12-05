@@ -1,9 +1,4 @@
-# README
+Name: Ali Taha
+Ruby on Rails version 7.0.3.1
 
-Name: Ali Taha 
-
-Rails version: 7.0.3.1
-
-Ruby version: 3.1.2p20
-
-The program has a scaffold for each of the following: Students, Prefixes. Courses, Semesters, Sections and Students. A user can create, delete, update students and others. Associations has been made for each of the above scaffolds. 
+This is my final web application. It should have every assignemnt in it. I had fun while working on it. This was a fun class. Thank you Dr.Beaty! 

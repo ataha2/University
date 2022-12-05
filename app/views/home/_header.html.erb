@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <%= link_to 'University', root_path , class:"navbar-brand" %>	
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-link">
+        <th><%= link_to "Students", students_path %></th> 
+      </li>
+      <li class="nav-link">
+        <th><%= link_to "Sections", sections_path %></th>
+      </li>
+      <li class="nav-link">
+         <th><%= link_to "Courses", courses_path %></th>
+      </li>
+      <li class="nav-link">
+        <th><%= link_to "Prefixes", prefixes_path %></th>
+      </li>
+
+
+
+
+
+      <li class="nav-link">
+        <th><%= link_to  "Semesters", semesters_path %></th>
+      </li>
+
+
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+
+    </form>
+  </div>
+</nav>

@@ -1,10 +1,14 @@
 class SemestersController < ApplicationController
-  before_action :set_semester, only: %i[ show edit update destroy ]
+ # before_action :set_semester, only: %i[ show edit update destroy ]
 
   # GET /semesters or /semesters.json
   def index
-    @semesters = Semester.all
-  end
+    if params[:query]
+      @semesters = Semester.where("semester like ?", "%#{params[:query]}%")
+    else
+      @semesters = Semester.all
+    end
+   end
 
   # GET /semesters/1 or /semesters/1.json
   def show
@@ -65,6 +69,6 @@ class SemestersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def semester_params
-      params.require(:semester).permit(:semster, :year)
+      params.require(:semester).permit(:semester, :year)
     end
 end
