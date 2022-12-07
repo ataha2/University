@@ -62,21 +62,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_16_084806) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "students_sections", force: :cascade do |t|
-    t.integer "student_id", null: false
-    t.integer "section_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["section_id"], name: "index_students_sections_on_section_id"
-    t.index ["student_id"], name: "index_students_sections_on_student_id"
-  end
-
-  add_foreign_key "sections_students", "sections"
-  add_foreign_key "sections_students", "students"
-  add_foreign_key "students_sections", "sections"
-  add_foreign_key "students_sections", "students"
   add_foreign_key "courses", "prefixes"
   add_foreign_key "sections", "courses"
   add_foreign_key "sections", "semesters"
-
+  add_foreign_key "sections_students", "sections"
+  add_foreign_key "sections_students", "students"
 end

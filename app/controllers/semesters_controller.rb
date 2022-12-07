@@ -12,6 +12,7 @@ class SemestersController < ApplicationController
 
   # GET /semesters/1 or /semesters/1.json
   def show
+    @semester = Semester.find(params[:id])
   end
 
   # GET /semesters/new
